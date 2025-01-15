@@ -1,0 +1,90 @@
+# Prueba Tenpo
+
+## Descripción
+
+Esta es una aplicación Spring Boot que utiliza una base de datos PostgreSQL.
+
+## Requisitos
+
+- Java 17
+- Maven
+- Docker (para despliegue con Docker)
+
+## Despliegue Local
+
+### Configuración de la Base de Datos
+
+1. Asegúrate de tener PostgreSQL instalado y en ejecución.
+2. Crea una base de datos llamada `transacciones_db`.
+3. Configura las credenciales de la base de datos en el archivo `src/main/resources/application.properties`:
+
+    ```properties
+    spring.datasource.url=jdbc:postgresql://localhost:5432/transacciones_db
+    spring.datasource.username=tu_usuario
+    spring.datasource.password=tu_contraseña
+    ```
+
+### Construcción y Ejecución de la Aplicación
+
+1. Clona el repositorio:
+
+    ```sh
+    git clone https://github.com/robertocaamanor/pruebatenpo.git
+    cd pruebatenpo
+    ```
+
+2. Construye el proyecto con Maven:
+
+    ```sh
+    mvn clean install
+    ```
+
+3. Ejecuta la aplicación:
+
+    ```sh
+    mvn spring-boot:run
+    ```
+
+La aplicación estará disponible en `http://localhost:8080`.
+
+## Despliegue con Docker
+
+### Configuración de la Base de Datos
+
+1. Asegúrate de tener Docker instalado y en ejecución.
+2. Crea y ejecuta un contenedor de PostgreSQL:
+
+    ```sh
+    docker run --name postgres_db -e POSTGRES_DB=transacciones_db -e POSTGRES_USER=user -e POSTGRES_PASSWORD=password -p 5432:5432 -d postgres:13
+    ```
+
+### Construcción y Ejecución de la Aplicación con Docker
+
+1. Construye la imagen de Docker:
+
+    ```sh
+    docker build -t pruebatenpo .
+    ```
+
+2. Levanta los servicios definidos en `docker-compose.yml`:
+
+    ```sh
+    docker-compose up --build
+    ```
+
+La aplicación estará disponible en `http://localhost:8080`.
+
+## Endpoints
+
+- `GET /transaction/{id}`: Obtiene una transacción por ID.
+- `PUT /transaction/{id}`: Actualiza una transacción por ID.
+- `DELETE /transaction/{id}`: Elimina una transacción por ID.
+
+## Notas
+
+- Asegúrate de reemplazar las credenciales de la base de datos en `application.properties` y `docker-compose.yml` según sea necesario.
+- Para detener los contenedores Docker, ejecuta:
+
+    ```sh
+    docker-compose down
+    ```
