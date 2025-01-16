@@ -13,6 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/transaction")
+@CrossOrigin
 @Tag(name = "Transaccion Controller", description = "Operaciones relacionadas con transacciones")
 public class TransaccionController {
 

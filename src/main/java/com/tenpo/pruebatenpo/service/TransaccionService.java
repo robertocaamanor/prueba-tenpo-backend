@@ -24,7 +24,7 @@ public class TransaccionService {
     }
 
     public Transaccion createTransaccion(Transaccion transaccion) {
-        transaccion.setFechaTransaccion(LocalDateTime.now()); // Establece la fecha y hora actuales
+        transaccion.setFechaTransaccion(LocalDateTime.now());
         return transaccionRepository.save(transaccion);
     }
 
