@@ -1,17 +1,11 @@
-package com.tenpo.pruebatenpo.model;
+package com.tenpo.pruebatenpo.dto;
 
-import com.tenpo.pruebatenpo.dto.CrearTransaccionDTO;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
-import java.time.LocalDateTime;
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.NotNull;
 
-@Entity
-public class Transaccion {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Schema(description = "ID de la transacción", accessMode = Schema.AccessMode.READ_ONLY)
-    private Long idTransaccion;
+import java.time.LocalDateTime;
+
+public class CrearTransaccionDTO {
 
     @NotNull
     @Schema(description = "Monto de la transacción")
@@ -28,23 +22,6 @@ public class Transaccion {
     @NotNull
     @Schema(description = "Fecha de la transacción")
     private LocalDateTime fechaTransaccion;
-
-    public Transaccion() {}
-
-    public Transaccion(CrearTransaccionDTO dto) {
-        this.montoTransaccion = dto.getMontoTransaccion();
-        this.giroComercio = dto.getGiroComercio();
-        this.nombreTenpista = dto.getNombreTenpista();
-        this.fechaTransaccion = dto.getFechaTransaccion();
-    }
-
-    public Long getIdTransaccion() {
-        return idTransaccion;
-    }
-
-    public void setIdTransaccion(Long idTransaccion) {
-        this.idTransaccion = idTransaccion;
-    }
 
     public int getMontoTransaccion() {
         return montoTransaccion;

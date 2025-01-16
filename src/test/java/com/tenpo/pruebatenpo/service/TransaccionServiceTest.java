@@ -1,5 +1,6 @@
 package com.tenpo.pruebatenpo.service;
 
+import com.tenpo.pruebatenpo.dto.CrearTransaccionDTO;
 import com.tenpo.pruebatenpo.model.Transaccion;
 import com.tenpo.pruebatenpo.repository.TransaccionRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -25,6 +26,7 @@ class TransaccionServiceTest {
     private TransaccionService transaccionService;
 
     private Transaccion transaccion;
+    private CrearTransaccionDTO crearTransaccionDTO;
 
     @BeforeEach
     void setUp() {
@@ -35,6 +37,11 @@ class TransaccionServiceTest {
         transaccion.setGiroComercio("Retail");
         transaccion.setNombreTenpista("John Doe");
         transaccion.setFechaTransaccion(LocalDateTime.now());
+
+        crearTransaccionDTO = new CrearTransaccionDTO();
+        crearTransaccionDTO.setMontoTransaccion(100);
+        crearTransaccionDTO.setGiroComercio("Retail");
+        crearTransaccionDTO.setNombreTenpista("John Doe");
     }
 
     @Test
@@ -56,10 +63,10 @@ class TransaccionServiceTest {
 
     @Test
     void testCreateTransaccion() {
-        when(transaccionRepository.save(transaccion)).thenReturn(transaccion);
-        Transaccion createdTransaccion = transaccionService.createTransaccion(transaccion);
-        assertEquals(transaccion.getIdTransaccion(), createdTransaccion.getIdTransaccion());
-        verify(transaccionRepository, times(1)).save(transaccion);
+        when(transaccionRepository.save(any(Transaccion.class))).thenReturn(transaccion);
+        Transaccion createdTransaccion = transaccionService.createTransaccion(crearTransaccionDTO);
+        assertEquals(transaccion.getMontoTransaccion(), createdTransaccion.getMontoTransaccion());
+        verify(transaccionRepository, times(1)).save(any(Transaccion.class));
     }
 
     @Test

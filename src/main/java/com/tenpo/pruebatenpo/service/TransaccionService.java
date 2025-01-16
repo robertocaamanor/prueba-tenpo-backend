@@ -1,5 +1,6 @@
 package com.tenpo.pruebatenpo.service;
 
+import com.tenpo.pruebatenpo.dto.CrearTransaccionDTO;
 import com.tenpo.pruebatenpo.model.Transaccion;
 import com.tenpo.pruebatenpo.repository.TransaccionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,8 @@ public class TransaccionService {
         return transaccionRepository.findById(id);
     }
 
-    public Transaccion createTransaccion(Transaccion transaccion) {
+    public Transaccion createTransaccion(CrearTransaccionDTO transaccionDTO) {
+        Transaccion transaccion = new Transaccion(transaccionDTO);
         transaccion.setFechaTransaccion(LocalDateTime.now());
         return transaccionRepository.save(transaccion);
     }

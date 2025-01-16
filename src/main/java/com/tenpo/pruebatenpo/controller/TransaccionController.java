@@ -1,5 +1,6 @@
 package com.tenpo.pruebatenpo.controller;
 
+import com.tenpo.pruebatenpo.dto.CrearTransaccionDTO;
 import com.tenpo.pruebatenpo.model.Transaccion;
 import com.tenpo.pruebatenpo.service.TransaccionService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -35,8 +36,8 @@ public class TransaccionController {
 
     @PostMapping
     @Operation(summary = "Crear una nueva transacción", description = "Crea una nueva transacción")
-    public Transaccion createTransaccion(@RequestBody Transaccion transaccion) {
-        return transaccionService.createTransaccion(transaccion);
+    public Transaccion createTransaccion(@RequestBody CrearTransaccionDTO transaccionDTO) {
+        return transaccionService.createTransaccion(transaccionDTO);
     }
 
     @PutMapping("/{id}")
