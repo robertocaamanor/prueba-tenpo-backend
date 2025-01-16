@@ -76,7 +76,9 @@ La aplicación estará disponible en `http://localhost:8080`.
 
 ## Endpoints
 
+- `GET /transaction/`: Obtiene todas las transacciones.
 - `GET /transaction/{id}`: Obtiene una transacción por ID.
+- `POST /transaction/`: Guarda una nueva transacción.
 - `PUT /transaction/{id}`: Actualiza una transacción por ID.
 - `DELETE /transaction/{id}`: Elimina una transacción por ID.
 

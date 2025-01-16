@@ -52,7 +52,7 @@ public class RateLimitFilter implements Filter {
             chain.doFilter(request, response);
         } else {
             httpResponse.setStatus(429); // Código de estado para "Too Many Requests"
-            httpResponse.setContentType("application/json");
+            httpResponse.setContentType("application/json;charset=UTF-8");
 
             Map<String, Object> responseBody = new HashMap<>();
             responseBody.put("timestamp", LocalDateTime.now());
