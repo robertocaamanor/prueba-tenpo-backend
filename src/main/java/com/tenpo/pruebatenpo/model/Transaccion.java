@@ -13,19 +13,19 @@ public class Transaccion {
     @Schema(description = "ID de la transacción", accessMode = Schema.AccessMode.READ_ONLY)
     private Long idTransaccion;
 
-    @NotNull
+    @NotNull(message = "El monto de la transacción no puede ser nulo")
     @Schema(description = "Monto de la transacción")
     private int montoTransaccion;
 
-    @NotNull
+    @NotNull(message = "El giro del comercio no puede ser nulo")
     @Schema(description = "Giro del comercio")
     private String giroComercio;
 
-    @NotNull
+    @NotNull(message = "El nombre del tenpista no puede ser nulo")
     @Schema(description = "Nombre del tenpista")
     private String nombreTenpista;
 
-    @NotNull
+    @NotNull(message = "La fecha de la transacción no puede ser nula")
     @Schema(description = "Fecha de la transacción")
     private LocalDateTime fechaTransaccion;
 

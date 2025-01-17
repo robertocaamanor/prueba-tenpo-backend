@@ -26,18 +26,6 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler(TooManyRequestsException.class)
-    public ResponseEntity<Object> handleTooManyRequestsException(TooManyRequestsException ex, WebRequest request) {
-        Map<String, Object> body = new HashMap<>();
-        body.put("timestamp", LocalDateTime.now());
-        body.put("status", HttpStatus.TOO_MANY_REQUESTS.value());
-        body.put("error", "Too Many Requests");
-        body.put("message", "Ha superado el límite de transacciones permitido en esta aplicación, espere un minuto");
-        body.put("path", request.getDescription(false));
-
-        return new ResponseEntity<>(body, HttpStatus.TOO_MANY_REQUESTS);
-    }
-
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Object> handleAllExceptions(Exception ex, WebRequest request) {
         Map<String, Object> body = new HashMap<>();
