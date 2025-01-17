@@ -51,12 +51,7 @@ La aplicación estará disponible en `http://localhost:8080`.
 
 ### Configuración de la Base de Datos
 
-1. Asegúrate de tener Docker instalado y en ejecución.
-2. Crea y ejecuta un contenedor de PostgreSQL:
-
-    ```sh
-    docker run --name postgres_db -e POSTGRES_DB=transacciones_db -e POSTGRES_USER=user -e POSTGRES_PASSWORD=password -p 5432:5432 -d postgres:13
-    ```
+Dentro del `docker-compose.yml` se crea tanto el microservicio en Spring Boot como el servidor de Postgres, todo en un mismo container.
 
 ### Construcción y Ejecución de la Aplicación con Docker
 
