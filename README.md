@@ -110,7 +110,7 @@ Para interactuar con los endpoints POST /transaction/ y PUT /transaction/{id}, p
 
 ## Notas
 
-- Asegúrate de reemplazar las credenciales de la base de datos en `application.properties` y `docker-compose.yml` según sea necesario.
+- Asegúrate de reemplazar las credenciales de la base de datos en `application.properties` y `docker-compose.yml` según sea necesario. Para levantar en local, debes configurar la conexión a la Base de Datos apuntando a `jdbc:postgresql://localhost:5432/transacciones_db`, y en Docker apuntando a `jdbc:postgresql://db:5432/transacciones_db`
 - Para detener los contenedores Docker, ejecuta:
 
     ```sh
