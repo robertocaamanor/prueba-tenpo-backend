@@ -82,6 +82,32 @@ La aplicación estará disponible en `http://localhost:8080`.
 - `PUT /transaction/{id}`: Actualiza una transacción por ID.
 - `DELETE /transaction/{id}`: Elimina una transacción por ID.
 
+## Interacción POST Y PUT
+
+Para interactuar con los endpoints POST /transaction/ y PUT /transaction/{id}, puedes utilizar los siguientes ejemplos de solicitudes HTTP en formato JSON basados en los datos de CrearTransaccionDTO:
+
+### POST /transaction/
+
+```json
+{
+   "montoTransaccion": 100,
+   "giroComercio": "Retail",
+   "nombreTenpista": "John Doe",
+   "fechaTransaccion": "2023-10-01T12:00:00"
+}
+```
+
+### PUT /transaction/{id}
+
+```json
+{
+   "montoTransaccion": 200,
+   "giroComercio": "Retail",
+   "nombreTenpista": "John Doe",
+   "fechaTransaccion": "2023-10-01T12:00:00"
+}
+```
+
 ## Notas
 
 - Asegúrate de reemplazar las credenciales de la base de datos en `application.properties` y `docker-compose.yml` según sea necesario.
